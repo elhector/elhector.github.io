@@ -1,0 +1,231 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat:600,800,900");
+@import url("https://fonts.googleapis.com/css?family=Bree+Serif");
+:root {
+  --font-mont: "Montserrat", sans-serif;
+  --font-be: "Bree Serif", serif;
+  --color-dark-blue: #2b353f;
+  --color-mustard-yellow: #e9ca4d;
+  --color-purple: #36324f;
+  --color-dark-purple: #332546;
+  --color-green: #36e57c;
+  --color-pale-green: #2bd08e;
+  --color-pale-pink: #f6f0ba;
+  --box-shadow: 0px 4px 20px -4px rgba(0,0,0,.35);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+img {
+  height: 100%;
+}
+
+body {
+  position: relative;
+  font-family: var(--font-mont);
+}
+
+.wrapper {
+  position: relative;
+  background: #a1a1a1;
+  background-size: 8%;
+  width: 100%;
+  padding: 4em;
+  height: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+}
+
+@keyframes background {
+  0% {
+    background-position: top-left;
+  }
+  25% {
+    background-position: center;
+  }
+  75% {
+    background-position: bottom-right;
+  }
+  100% {
+    background-position: top-left;
+  }
+}
+/*
+.text-absolute {
+  text-align: center;
+    position: absolute;
+    font-size: 25vh;
+  text-shadow: 2px 2px 10px rgba(0,0,0,.3);
+    font-family: var(--font-be);
+    color: var(--color-pale-pink);
+    z-index: 0;
+  letter-spacing: 10px;
+}
+*/
+.card {
+  position: reative;
+  display: inline-block;
+  background: #ffffff;
+  width: 300px;
+  margin: 20px 15px;
+  min-width: 275px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 5px;
+  overflow: hidden;
+  box-shadow: var(--box-shadow);
+  z-index: 100;
+}
+
+.card__header {
+  position: relative;
+  display: block;
+  background-color: var(--color-heading);
+  background: url(header.jpg);
+  background-size: cover;
+  height: 175px;
+  width: 100%;
+}
+.card__header .card__user__image {
+  position: absolute;
+  display: inline-block;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  bottom: -45px;
+  height: 90px;
+  width: 90px;
+  padding: 10px;
+  background: #fff;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.card__header .card__user__image .card__user__avatar {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+
+.card__text__container {
+  padding: 2.5em 1.25em;
+  text-align: left;
+}
+.card__text__container .card__text__user {
+  margin: 0;
+  font-size: 26px;
+  text-align: left;
+  font-weight: 900;
+  text-transform: uppercase;
+  color: var(--color-dark-blue);
+}
+.card__text__container .card__text__job {
+  margin: 0;
+  padding-top: 0.75em;
+  font-size: 13px;
+  text-align: left;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--color-purple);
+}
+.card__text__container .card__text__about {
+  margin: 0;
+  padding: 1.5em 0em;
+  font-size: 14px;
+  line-height: 150%;
+  text-align: left;
+  font-weight: 500;
+  color: rgba(0, 0, 0, 0.45);
+}
+
+.btn {
+  position: relative;
+  background: var(--color-pale-green);
+  color: #ffffff;
+  font-family: var(--font-be);
+  display: inline-block;
+  text-decoration: none;
+  padding: 15px 25px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: regular;
+  letter-spacing: 2px;
+  z-index: 100;
+  transition: 300ms ease;
+}
+.btn:hover::before {
+  opacity: 1;
+  filter: blur(10px);
+}
+
+.btn::before {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 100%;
+  transform: scale3d(0.75, 0.75, 0.75);
+  opacity: 0;
+  top: 10px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--color-pale-green);
+  z-index: -5;
+  transition: 300ms ease;
+}
+
+@media screen and (max-width: 350px) {
+  .wrapper {
+    padding: 3em 1.2em;
+  }
+
+  .card {
+    min-width: 100%;
+    max-width: 100%;
+  }
+}
+#loader {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  min-height: 100vh;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--color-pale-pink);
+  z-index: 999;
+}
+
+#preloader {
+  position: relative;
+  width: 125px;
+  height: 125px;
+  background: var(--color-purple);
+  border-radius: 50%;
+  animation-iteration-count: infinite;
+  animation-duration: 700ms;
+  animation-fill-mode: both;
+  animation-name: scale-up-down-half;
+}
+
+@keyframes scale-up-down-half {
+  0% {
+    opacity: 1;
+    transform: scale3d(0.25, 0.25, 0.25);
+  }
+  100% {
+    opacity: 0;
+    transform: scale3d(1, 1, 1);
+  }
+}
